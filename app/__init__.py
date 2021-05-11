@@ -1,6 +1,9 @@
 from flask import Flask
+from config import Config
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__)
+app.config.from_object(Config)
+app.add_url_rule('/', endpoint='index')
 
 from app import routes
 

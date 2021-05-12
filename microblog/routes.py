@@ -1,12 +1,13 @@
 from flask import render_template, redirect, url_for
-from app import app
-from app.forms import LoginForm
+from microblog import app
+from microblog.forms import LoginForm
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     title = 'Home'
-    user = {'username': 'Dev'}
+    user = {'username': 'Devansh'}
     posts = [
         {
             'author': {'username': 'John'},

@@ -7,7 +7,7 @@ from microblog.forms import LoginForm
 @app.route('/index')
 def index():
     title = 'Home'
-    user = {'username': 'Devansh'}
+    user = {'username': 'Dev'}
     posts = [
         {
             'author': {'username': 'John'},

@@ -1,6 +1,6 @@
 import pytest
 # from flask import Flask
-from microblog import app
+from app import app
 
 
 @pytest.fixture
@@ -11,7 +11,7 @@ def client():
     with app.test_client() as client:
         yield client
 
-# from microblog.forms import LoginForm
+# from app.forms import LoginForm
 class AuthActions(object):
     def __init__(self, client):
         self._client = client

@@ -1,1 +1,1 @@
-from microblog import app
+from app import app

@@ -17,7 +17,6 @@ from app.models import User
 @login_required
 def index():
     title = 'Home'
-    #user = {'username': 'Test'}
     posts = [
         {
             'author': {'username': 'John'},

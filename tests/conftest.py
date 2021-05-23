@@ -11,12 +11,12 @@ def client():
     with app.test_client() as client:
         yield client
 
-# from app.forms import LoginForm
+
 class AuthActions(object):
     def __init__(self, client):
         self._client = client
 
-    def login(self, username='test', password='test'):
+    def login(self, username='dev', password='pass'):
         return self._client.post(
             '/login', data=dict(
                 username=username,

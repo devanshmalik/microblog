@@ -48,3 +48,7 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError(
                     f'Username already exists. Please use a different username.'
                 )
+
+
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')

@@ -1,6 +1,6 @@
 import pytest
 # from flask import Flask
-from app import app
+from app import app, db
 
 
 @pytest.fixture
@@ -10,6 +10,19 @@ def client():
 
     with app.test_client() as client:
         yield client
+
+
+@pytest.fixture
+def db():
+    from app import app, db
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+    db.create_all()
+
+    yield db
+
+    # Teardown
+    db.session.remove()
+    db.drop_all()
 
 
 class AuthActions(object):

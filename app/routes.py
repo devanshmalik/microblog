@@ -1,6 +1,6 @@
 import flask
 from flask import (
-    request, render_template, redirect, url_for, flash, g
+    request, render_template, redirect, url_for, flash, g, jsonify
 )
 from flask_login import (
     current_user, login_user, logout_user, login_required
@@ -13,6 +13,7 @@ from guess_language import guess_language
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, PostForm
 from app.models import User, Post
+from app.translate import translate
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -174,3 +175,11 @@ def explore():
     return render_template('index.html', title=_('Explore'),
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
+
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],
+                                      request.form['source_language'],
+                                      request.form['dest_language'])})

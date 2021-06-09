@@ -1,6 +1,8 @@
 FLASK_APP=microblog.py
 FLASK_ENV=development
 
+MS_TRANSLATOR_KEY=c425476a9d9d47299945a8aeb5f570a5
+
 MAIL_SERVER=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USE_TLS=1
